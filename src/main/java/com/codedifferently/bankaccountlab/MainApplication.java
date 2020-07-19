@@ -24,7 +24,8 @@ public class MainApplication
 
         System.out.println("1) Create an Account");
         System.out.println("2) Login to your account");
-        System.out.println("3) Exit ATM");
+        System.out.println("3) Created Accounts ");
+        System.out.println("4) Exit ATM");
 
         int inputNumber = scan.nextInt();
 
@@ -37,12 +38,29 @@ public class MainApplication
                 loginToAccount();
                 break;
             case 3:
+                listMyAccounts();
+                break;
+            case 4:
                 System.out.println("Come again!");
                 break;
-            default:
-                System.out.println("Invalid option! Select again or exit");
-                mainMenu();
-                break;
+        }
+    }
+
+    public void listMyAccounts()
+    {
+        if(accounts.size() == 0)
+        {
+            System.out.println("No accounts created, going back to main menu");
+            System.out.println();
+            mainMenu();
+        }
+        else
+        {
+            System.out.println("These are your accounts");
+            System.out.println(accounts);
+            System.out.println();
+
+            mainMenu();
         }
     }
 
